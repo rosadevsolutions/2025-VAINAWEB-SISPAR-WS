@@ -25,7 +25,26 @@ def create_collaborator():
         'cargo': collaborator_request['cargo'],
         'cracha': collaborator_request['cracha']
     }
-
     collaborator_list.append(collaborator_new)
-
     return jsonify({'mensagem':'Colaborador cadastrado com sucesso!'}), 201
+
+
+@bp_collaborator.route('/atualizar/<int:collaborator_id>', methods=['PUT'])
+def update_collaborator(collaborator_id):
+    collaborator_request = request.get_json()
+
+    for collaborator in collaborator_list:
+        if collaborator['id'] == collaborator_id:
+            collaborator_found = collaborator
+            break
+
+    if 'nome' in collaborator_request:
+        collaborator_found['nome'] = collaborator_request['nome']
+
+    if 'cargo' in collaborator_request:
+        collaborator_found['cargo'] = collaborator_request['cargo']
+
+    if 'cracha' in collaborator_request:
+        collaborator_found['cracha'] = collaborator_request['cracha']
+
+    return jsonify({'mensagem':'Colaborador atualizado com sucesso!'}), 200
