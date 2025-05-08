@@ -1,5 +1,5 @@
 from flask import Flask
-from src.controller.colaborador_controller import bp_collaborator
+from src.controller.collaborator_controller import bp_collaborator
 
 def create_app():
     app = Flask(__name__)
