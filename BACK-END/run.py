@@ -1,22 +1,11 @@
-from flask import Flask
+from src.app import create_app
 
-app = Flask(__name__)
-
-@app.route('/')
-def hello():
-    return 'teste main'
-
-@app.route('/colaboradores')
-def get_data_collaborators():
-    data_collaborators = {
-        'nome':'Romulo Rosa',
-        'cpf':'124.54.687-98',
-        'cargo':'Desenvolvedor FullStack'
-    }
-    return data_collaborators
+app = create_app()
 
 if __name__ == '__main__':
     app.run(debug=True)
+
+
 
 
 #BUGS CORRIGIDOS
