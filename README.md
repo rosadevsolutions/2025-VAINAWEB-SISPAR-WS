@@ -2,7 +2,7 @@
 
 ### **Escola:** [Vai na Web](https://vainaweb.com.br/)<br/>
 ### **Curso:** Desenvolvedor Full Stack | **Ano:** 2024/2025<br/>
-### **Turma:** T3 | **Instrutores:** Karyne Oliveira e Samuel Silvério
+### **Turma:** T3 | **Instrutores:** Karynne Oliveira (Front-End) e Samuel Silvério (Back-End)
 
 ---
 
