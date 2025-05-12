@@ -1,4 +1,6 @@
 from flask import Blueprint, request, jsonify
+from src.model.collaborator_model import Collaborator
+from src.model import db
 
 bp_collaborator = Blueprint('colaboradores', __name__, url_prefix='/colaboradores')
 
@@ -19,13 +21,17 @@ def read_collaborator():
 @bp_collaborator.route('/cadastrar', methods=['POST'])
 def create_collaborator():
     collaborator_request = request.get_json()
-    collaborator_new = {
-        'id': len(collaborator_list) + 1,
-        'nome': collaborator_request['nome'],
-        'cargo': collaborator_request['cargo'],
-        'cracha': collaborator_request['cracha']
-    }
-    collaborator_list.append(collaborator_new)
+
+    new_collaborator = Collaborator(
+        nome    = collaborator_request['nome'],
+        email   = collaborator_request['email'],
+        senha   = collaborator_request['senha'],
+        cargo   = collaborator_request['cargo'],
+        salario = collaborator_request['salario']
+    )
+
+    db.session.add(new_collaborator)
+    db.session.commit()
     return jsonify({'mensagem':'Colaborador cadastrado com sucesso!'}), 201
 
 
