@@ -8,9 +8,9 @@ class Collaborator(db.Model):
     id      = Column(Integer, primary_key=True, autoincrement=True)
     nome    = Column(String(100))
     email   = Column(String(100))
-    senha   = Column(String(100))
+    senha   = Column(String(50))
     cargo   = Column(String(100))
-    salario = Column(DECIMAL)
+    salario = Column(DECIMAL(10,2))
 
     def __init__ (self, nome, email, senha, cargo, salario):
         self.nome = nome
