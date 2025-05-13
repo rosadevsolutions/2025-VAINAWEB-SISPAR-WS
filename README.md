@@ -32,13 +32,13 @@
 Node JS | Versão: 18.19.0 (LTS): [Link](https://nodejs.org/pt/blog/release/v18.19.0)
 
 **2) GitHub - Acessar Repositório Remoto**<br/>
-Projeto: [Link](https://github.com/rosadevsolutions/2025-vainaweb-sispar)
+Projeto: [Link](https://github.com/rosadevsolutions/2025-vainaweb-sispar-ws)
 
 **3) Terminal - Clonar Projeto do Repositório Remoto para sua Máquina**<br/>
-`git clone git@github.com:rosadevsolutions/2025-vainaweb-sispar.git`
+`git clone git@github.com:rosadevsolutions/2025-vainaweb-sispar-ws.git`
 
 **4) Terminal - Acessar o Diretório/Pasta Específica do Projeto**<br/>
-`cd 2025-vainaweb-sispar.git`
+`cd 2025-vainaweb-sispar-ws`
 
 **5) Terminal - Instalar no Projeto os Pacotes Gerais de Dependências de Desenvolvimento**<br/>
 `npm install`
@@ -53,3 +53,38 @@ Projeto: [Link](https://github.com/rosadevsolutions/2025-vainaweb-sispar)
 `npm run dev`
 
 ---
+
+## BACK-END ##
+
+# Principal Tecnologia
+
+**Python:** [Link](https://www.python.org/)
+
+# Para Trabalhar no Projeto
+
+**1) Python - Instalar Versão Compatível (18.19.0 ou mais recente)**<br/>
+Node JS | Versão: 3.13.3: [Link](https://www.python.org/downloads/)
+
+**2) GitHub - Acessar Repositório Remoto do Projeto**<br/>
+Projeto: [Link](https://github.com/rosadevsolutions/2025-vainaweb-sispar-ws)
+
+**3) Terminal - Clonar Projeto do Repositório Remoto para sua Máquina**<br/>
+`git clone git@github.com:rosadevsolutions/2025-vainaweb-sispar-ws.git`
+
+**4) Terminal - Acessar o Diretório/Pasta Específica do Projeto**<br/>
+`cd 2025-vainaweb-sispar-ws/BACK-END`
+
+**5) Instalar Todos os Módulos Python Usados no Projeto**<br/>
+`pip install -r requeriments.txt`
+
+# Módulos Python Instalados no Projeto
+**Flask** `pip install flask`<br/>
+**Dotenv** `pip install dotenv`<br/>
+**SQLAlchemy** `pip install sqlalchemy`<br/>
+
+---
+
+## BANCO DE DADOS ##
+
+# Principal Tecnologia
+**MySQL:** [Link](https://www.mysql.com/)
