@@ -84,43 +84,43 @@ export default function SolicitacaoTable() {
           </tr>
         </thead>
         <tbody className={styles.table__body}>
-          {tableData.map(rawData => {
-            <tr>
-              <td>
-                <button className={styles.table__button}>
-                  <img
-                    className={`${styles.table__icon} ${styles.table__icon__trash}`}
-                    src={IconTrash}
-                    alt="Trash"
-                    title="Deletar linha"
-                  />
-                </button>
-              </td>
-              <td>{rawData.colaborador}</td>
-              <td>{rawData.empresa}</td>
-              <td>{rawData.numeroPrestacao}</td>
-              <td>{rawData.data}</td>
-              <td>
-                <button className={styles.table__button}>
-                  <img
-                    className={`${styles.table__icon} ${styles.table__icon__motivo}`}
-                    src={IconMotivo}
-                    alt="Motivo"
-                    title="Motivo" />
-                </button>
-              </td>
-              <td>{rawData.tipoDespesa}</td>
-              <td>{rawData.centroCusto}</td>
-              <td>{rawData.ordemInterna}</td>
-              <td>{rawData.divisao}</td>
-              <td>{rawData.pep}</td>
-              <td>{rawData.moeda} </td>
-              <td>{rawData.distanciaKm} </td>
-              <td>{rawData.ValorKm}</td>
-              <td>{rawData.valorFaturado}</td>
-              <td>{rawData.despesa}</td>
-            </tr>
-          })}
+          {tableData.map(rowData => (
+          <tr>
+            <td>
+              <button className={styles.table__button}>
+                <img
+                  className={`${styles.table__icon} ${styles.table__icon__trash}`}
+                  src={IconTrash}
+                  alt="Trash"
+                  title="Deletar linha"
+                />
+              </button>
+            </td>
+            <td>{rowData.colaborador}</td>
+            <td>{rowData.empresa}</td>
+            <td>{rowData.numeroPrestacao}</td>
+            <td>{rowData.data}</td>
+            <td>
+              <button className={styles.table__button}>
+                <img
+                  className={`${styles.table__icon} ${styles.table__icon__motivo}`}
+                  src={IconMotivo}
+                  alt="Motivo"
+                  title="Motivo" />
+              </button>
+            </td>
+            <td>{rowData.tipoDespesa}</td>
+            <td>{rowData.centroCusto}</td>
+            <td>{rowData.ordemInterna}</td>
+            <td>{rowData.divisao}</td>
+            <td>{rowData.pep}</td>
+            <td>{rowData.moeda} </td>
+            <td>{rowData.distanciaKm} </td>
+            <td>{rowData.ValorKm}</td>
+            <td>{rowData.valorFaturado}</td>
+            <td>{rowData.despesa}</td>
+          </tr>
+          ))}
         </tbody>
       </table>
     </div>
