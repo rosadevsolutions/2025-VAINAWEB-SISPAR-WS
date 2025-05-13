@@ -1,0 +1,99 @@
+/* RESET CSS */
+*,
+*:after,
+*:before {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  text-decoration: none;
+}
+
+html {
+  font-family: "Inter", Arial, serif;
+  font-optical-sizing: auto;
+  font-size: 62.5%;
+  font-style: normal;
+}
+
+body{
+  -webkit-font-smoothing: antialiased;
+  font-size: 100%;
+  line-height: 1;
+  list-style-type: none;
+}
+
+ol,
+ul {
+  list-style: none;
+}
+
+blockquote,
+q {
+  quotes: none;
+}
+
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+  content: '';
+  content: none;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+img,
+picture,
+video,
+canvas,
+svg {
+  display: block;
+  max-width: 100%;
+}
+
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+p {
+  overflow-wrap: break-word;
+  text-wrap: pretty;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  overflow-wrap: break-word;
+  text-wrap: balance;
+}
+/* RESET CSS - FIM */
+
+/* VARIAVEIS CSS */
+html {
+  --color-black: #000000;
+  --color-blue1: #001A3D;
+  --color-blue2: #0844C4;
+  --color-blue3: #00BEDD;
+  --color-blue4: #00ACC7;
+  --color-velvet: #A60B2F;
+  --color-green: #007A6A;
+  --color-grey1: #F1F4F9;
+  --color-grey2: #CBD4E1;
+  --color-grey3: #63758D;
+  --color-grey4: #23282F;
+  --color-grey5: #898D93;
+  --color-orange: #E56700;
+  --color-white: #FFFFFF;
+  --size-1: 0.4rem;
+  --size-2: 0.8rem;
+  --size-3: 1.6rem;
+  --size-4: 3.2rem;
+  --size-5: 6.4rem;
+  --select-border: #777;
+  --select-focus: blue;
+}
+/* VARIAVEIS CSS - FIM*/

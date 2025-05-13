@@ -1,0 +1,16 @@
+.solicitacaoButton{
+  border: none;
+  border-radius: 0.6rem;
+  color: #FFF;
+  cursor: pointer;
+  display: inline-block;
+  font-size: 1.4rem;
+  font-weight: 700;
+  height: 4.5rem;
+  padding: 0 1.6rem;
+  transition: opacity .5s;
+
+  &:hover{
+    opacity: .8;
+  }
+}
