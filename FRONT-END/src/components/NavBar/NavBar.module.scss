@@ -1,0 +1,137 @@
+.navbar{
+  &__wrapper{
+    align-items: center;
+    background-color: var(--color-white);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 2rem;
+    max-width: 8.8rem;
+  }
+
+  &__content{
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    justify-content: space-between;
+    width: 5%;
+  }
+}
+
+.menu{
+  &__button{
+    background-color: var(--color-blue2);
+    border: none;
+    border-radius: 0.6rem;
+    cursor: pointer;
+    display: block;
+    height: 4.5rem;
+    transition: background-color .5s;
+    width: 4.8rem;
+
+    &:hover{
+      background-color: var(--color-blue1);
+    }
+  }
+
+  &__icon{
+    display: block;
+    height: 2.4rem;
+    margin: 0 auto;
+    width: 2.4rem;
+  }
+}
+
+.userTools__wrapper{
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  height: 40vh;
+  justify-content: space-between;
+}
+
+.user{
+  &__button{
+      background-color: var(--color-white);
+      border: none;
+      cursor: pointer;
+      display: block;
+      height: 4.8rem;
+      transition: opacity .5s;
+      width: 4.8rem;
+
+      &:hover{
+        opacity: 0.75;
+      }
+    }
+
+  &__icon{
+    display: block;
+    margin: 0 auto;
+  }
+}
+
+.tools{
+  &__wrapper{
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    height: 22.8rem;
+    justify-content: space-between;
+  }
+
+  &__button{
+    background-color: var(--color-blue2);
+    border: none;
+    border-radius: 0.6rem;
+    cursor: pointer;
+    display: block;
+    height: 4.5rem;
+    transition: background-color .5s;
+    width: 4.8rem;
+
+    &:hover{
+      background-color: var(--color-blue1);
+    }
+  }
+
+  &__icon{
+    display: block;
+    height: 2.4rem;
+    margin: 0 auto;
+    width: 2.4rem;
+  }
+}
+
+.exit{
+  &__wrapper{
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    height: 22.8rem;
+    justify-content: space-between;
+  }
+
+  &__button{
+    background-color: var(--color-grey3);
+    border: none;
+    border-radius: 0.6rem;
+    cursor: pointer;
+    display: block;
+    height: 4.5rem;
+    transition: background-color .5s;
+    width: 4.8rem;
+
+    &:hover{
+      background-color: var(--color-grey4);
+    }
+  }
+
+  &__icon{
+    display: block;
+    height: 2.4rem;
+    margin: 0 auto;
+    width: 2.4rem;
+  }
+}

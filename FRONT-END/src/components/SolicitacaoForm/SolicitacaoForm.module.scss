@@ -1,0 +1,219 @@
+.form{
+  &__wrapper{
+    align-items: flex-end;
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+  }
+
+  &__container1,
+  &__container2{
+    display: flex;
+    flex-flow: column;
+
+    &__top{
+      display: flex;
+      flex-flow: row wrap;
+      justify-content: space-between;
+    }
+  }
+
+  &__container1{
+    width: 35%;
+  }
+
+  &__container2{
+    width: 62%;
+
+    &__bottom{
+      align-items: flex-end;
+      display: flex;
+      justify-content: space-between;
+      width: 100%;
+
+      &__left{
+        display: flex;
+        justify-content: space-between;
+        width: 82%
+      }
+
+      &__right{
+        align-items: flex-end;
+        display: flex;
+        justify-content: space-between;
+        width: 14%;
+      }
+    }
+  }
+
+  &__spacer{
+    border-left: 1px solid var(--color-grey2);
+    height: 15rem;
+  }
+
+  &__field{
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+    margin-top: 1.6rem;
+
+    &__date{
+      width: 17%;
+    }
+
+    &__empresa,
+    &__prestacao{
+      width: 22%;
+    }
+
+    &__nome,
+    &__centrocustos{
+      width: 50%;
+    }
+
+    &__reembolso{
+      width: 100%;
+    }
+
+    &__moeda,
+    &__distkm,
+    &__valorkm,
+    &__valortaxa,
+    &__valorfaturado,
+    &__despesas{
+      width: 13%;
+    }
+
+    &__tiposdespesas{
+      width: 27%;
+    }
+
+    &__ordint,
+    &__pep,
+    &__div{
+      width: 7%;
+    }
+
+    &__maissalvar,
+    &__limpar{
+      align-items: center;
+      border: none;
+      border-radius: 0.6rem;
+      color: var(--color-white);
+      cursor: pointer;
+      height: 4.5rem;
+      justify-content: center;
+    }
+
+    &__maissalvar{
+      background-color: var(--color-blue1);
+      font-size: 1.4rem;
+      font-weight: 700;
+      transition: background-color 1s;
+      width: 65%;
+    }
+
+    &__limpar{
+      background-color: var(--color-blue3);
+      display: flex;
+      padding: 1.4rem;
+      transition: background-color .5s;
+      width: 30%;
+
+      &:hover{
+        background-color: var(--color-blue4);
+      }
+    }
+  }
+
+  &__label{
+    font-size: 1.4rem;
+    font-weight: 700;
+  }
+
+  &__input,
+  &__select{
+    border: 0.08rem solid var(--color-grey2);
+    border-radius: 0.6rem;
+    color: var(--color-grey5);
+    font-size: 1.2rem;
+    height: 4.5rem;
+    width: 100%;
+  }
+
+  &__input{
+    padding: 1.2rem 1.3rem;
+
+    &__date{
+      appearance: none;
+      text-transform: uppercase;
+    }
+  }
+
+  &__select{
+    appearance: none;
+    background-color: transparent;
+    border: none;
+    padding: 0 1em 0 0;
+    margin: 0;
+    width: 100%;
+    font-family: inherit;
+    font-size: inherit;
+    cursor: inherit;
+    line-height: inherit;
+    outline: none;
+
+    border: 1px solid var(--color-grey2);
+    border-radius: 0.6rem;
+    padding: 1.2rem 1.3rem;
+    font-size: 1.4rem;
+    cursor: pointer;
+    line-height: 1.1;
+    background-color: #FFF;
+    background-image: linear-gradient(to top, #f9f9f9, #fff 33%);
+    display: grid;
+    grid-template-areas: "select";
+    align-items: center;
+  }
+
+  .form__select::after{
+    content: "";
+    width: 0.8em;
+    height: 0.5em;
+    background-color: var(--select-border);
+    clip-path: polygon(100% 0%, 0 0%, 50% 100%);
+    grid-area: select;
+    justify-self: end;
+  }
+}
+
+.totals{
+  &__wrapper{
+    align-items: flex-end;
+    display: flex;
+    gap: 1.6rem;
+    justify-content: flex-end;
+  }
+
+  &__content{
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+    width: 8%;
+  }
+
+  &__label{
+    font-size: 1.4rem;
+    font-weight: 700;
+  }
+
+  &__out{
+    border: 0.08rem solid var(--color-grey2);
+    border-radius: 0.6rem;
+    font-size: 1.4rem;
+    font-weight: 400;
+    height: 4.5rem;
+    padding: 1.2rem;
+    width: 100%
+  }
+}

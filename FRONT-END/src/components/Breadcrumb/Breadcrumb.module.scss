@@ -1,0 +1,50 @@
+.breadcrumb{
+
+  &__wrapper{
+    align-items: center;
+    display: flex;
+    justify-content: flex-start;
+    height: 10rem;
+  }
+
+  &__list{
+    align-items: center;
+    display: flex;
+    gap: 2rem;
+    justify-content: flex-start;
+  }
+
+  &__item{
+    &__home{
+      background: url("../../assets/Breadcrumb/icon-home.svg");
+      cursor: pointer;
+      display: inline-block;
+      height: 1.575rem;
+      text-indent: -9999px;
+      width: 1.4rem;
+    }
+
+    &__page,
+    &__activepage{
+      font-size: 1.4rem;
+      font-weight: 400;
+
+    &::before{
+      background: url("../../assets/Breadcrumb/icon-arrow.svg") no-repeat;
+      display: block;
+      height: 1rem;
+      width: 0.6rem;
+    }
+    }
+
+    &__page{
+      color: var(--color-grey2);
+      cursor: pointer;
+      display: inline-block;
+    }
+
+    &__activepage{
+      color: var(--color-black);
+    }
+  }
+}

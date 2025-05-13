@@ -1,0 +1,16 @@
+.loginInput{
+  background-color: var(--color-white);
+  border: 0.08rem solid var(--color-grey2);
+  border-radius: 0.6rem;
+  color: var(--color-grey5);
+  font-size: 1.2rem;
+  height: 3.6rem;
+  margin-bottom: var(--size-2);
+  padding: 1.2rem 1.3rem;
+  width: 100%;
+
+  @media(min-width: 768px){
+    font-size: 1.6rem;
+    height: 4.5rem;
+  }
+}

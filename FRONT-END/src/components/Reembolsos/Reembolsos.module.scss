@@ -1,0 +1,173 @@
+.page{
+  &__wrapper{
+    background-color: var(--color-grey1);
+    display: flex;
+    gap: 1rem;
+    height: 100vh;
+    justify-content: center;
+    padding: 1.6rem;
+    width: 100%;
+  }
+
+  &__content{
+    background-color: var(--color-white);
+    display: flex;
+    flex-direction: column;
+    padding: 0 1.6rem;
+  }
+}
+
+.main {
+  &__wrapper{
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    height: 100vh;
+    width: 183.2rem;
+  }
+
+  &__content{
+    display: flex;
+    flex-direction: column;
+    gap: 3.2rem;
+    width: 51.25%;
+  }
+}
+
+.infos{
+  &__wrapper{
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+    width: 100%;
+  }
+
+  &__title{
+    font-size: 2.6rem;
+    font-weight: 700;
+  }
+
+  &__text{
+    font-size: 1.4rem;
+    font-weight: 400;
+  }
+}
+
+.services{
+  &__wrapper{
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+  }
+
+  &__card{
+    align-items: center;
+    border: 0.08rem solid var(--color-grey2);
+    border-radius: 0.6rem;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    gap: 1.6rem;
+    height: 20.9rem;
+    justify-content: center;
+    padding: 1.6rem;
+    transition: border .5s        ;
+    width: 31.5%;
+
+    &:hover{
+      border: 0.08rem solid var(--color-grey5);
+    }
+  }
+
+  &__title{
+    font-size: 1.6rem;
+    font-weight: 700;
+    line-height: 2.541rem;
+    text-align: center;
+  }
+}
+
+.report{
+  &__wrapper{
+    align-items: center;
+    border: 0.08rem solid var(--color-grey2);
+    border-radius: 0.6rem;
+    display: flex;
+    justify-content: center;
+    padding: 3.2rem 0;
+    width: 100%;
+  }
+
+  &__card{
+    &__wrapper{
+      align-items: center;
+      display: flex;
+      justify-content: flex-start;
+      width: 21%;
+    }
+
+    &__square__analise,
+    &__square__aprovados,
+    &__square__rejeitados,
+    &__square__solicitados{
+      align-items: center;
+      border-radius: 0.6rem;
+      display: flex;
+      height: 3.6rem;
+      justify-content: center;
+      margin-right: 0.8rem;
+      width: 3.6rem;
+    }
+
+    &__square__analise{
+      background-color: var(--color-orange);
+    }
+
+    &__square__aprovados{
+      background-color: var(--color-green);
+    }
+
+    &__square__rejeitados{
+      background-color: var(--color-velvet);
+    }
+
+    &__square__solicitados{
+      background-color: var(--color-blue3);
+    }
+
+    &__icon{
+      display: block;
+      height: 2.4rem;
+      margin: 0 auto;
+      width: 2.4rem;
+    }
+
+    &__value{
+      font-size: 1.4rem;
+      font-weight: 700;
+      margin-right: 0.4rem;
+    }
+
+    &__info{
+      font-size: 1.4rem;
+      font-weight: 400;
+    }
+  }
+  }
+
+
+.status{
+  &__wrapper{
+    align-items: center;
+    display: flex;
+    gap: 0.4rem;
+    justify-content: flex-start;
+  }
+
+  &__info{
+    color: var(--color-blue2);
+    font-size: 1.4rem;
+
+  }
+}
