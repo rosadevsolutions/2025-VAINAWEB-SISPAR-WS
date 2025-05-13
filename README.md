@@ -29,7 +29,7 @@
 # Para Trabalhar no Projeto
 
 **1) Node JS - Instalar Versão Compatível (18.19.0 ou mais recente)**<br/>
-Node JS | Versão: 18.19.0 (LTS): [Link](https://nodejs.org/pt/blog/release/v18.19.0)
+Node JS | Versão: 20.9.0 (LTS): [Link](https://nodejs.org/pt/blog/release/v18.19.0)
 
 **2) GitHub - Acessar Repositório Remoto**<br/>
 Projeto: [Link](https://github.com/rosadevsolutions/2025-vainaweb-sispar-ws)
@@ -63,7 +63,7 @@ Projeto: [Link](https://github.com/rosadevsolutions/2025-vainaweb-sispar-ws)
 # Para Trabalhar no Projeto
 
 **1) Python - Instalar Versão Compatível (18.19.0 ou mais recente)**<br/>
-Node JS | Versão: 3.13.3: [Link](https://www.python.org/downloads/)
+Python | Versão: 3.13.3: [Link](https://www.python.org/downloads/)
 
 **2) GitHub - Acessar Repositório Remoto do Projeto**<br/>
 Projeto: [Link](https://github.com/rosadevsolutions/2025-vainaweb-sispar-ws)
