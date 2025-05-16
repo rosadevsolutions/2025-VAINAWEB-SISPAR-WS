@@ -63,7 +63,6 @@ const rawData = [
 ]
 
 export default function Solicitacao(){
-  // Estados referente a cada campo do form
   const [colaborador, setColaborador] = useState("");
   const [empresa, setEmpresa] = useState("");
   const [numeroPrestacaoContas, setNumeroPrestacaoContas] = useState("");
@@ -79,14 +78,12 @@ export default function Solicitacao(){
   const [valorKm, setValorKm] = useState("");
   const [valorFaturado, setValorFaturado] = useState("");
   const [despesa, setDespesa] = useState("");
-
-  const [dadosReembolso, setDadosReembolso] = useState([]);
-
-  const [enviado, setEnviado] = useState(false);
+  const [dataReimbursement, setDataReimbursement] = useState([]);
+  const [sent, setSent] = useState(false);
 
 
   const handleSubmit = () => {
-    const objetoReembolso = {
+    const objectReimbursement = {
       colaborador,
       empresa,
       numeroPrestacaoContas,
@@ -103,11 +100,11 @@ export default function Solicitacao(){
       valorFaturado,
       despesa
     }
-    setDadosReembolso(dadosReembolso.concat(objetoReembolso))
-    limparCampos()
+    setDataReimbursement(dataReimbursement.concat(objectReimbursement))
+    clearFormFields()
   }
 
-  const limparCampos = () => {
+  const clearFormFields = () => {
     setColaborador(""),
     setEmpresa(""),
     setNumeroPrestacaoContas(""),
@@ -127,17 +124,17 @@ export default function Solicitacao(){
   };
 
   //Função assincrona para o código esperar sem travar o restante da app.
-  const enviarParaAnalise = async () => {
+  const sendForAnalysis = async () => {
     // Tentativa de execução
     try{
-      // Criar uma var pra receber a response/resposta a url vai esperar o post da api (caminho/rota/blueprint, argumento/lista/a ser enviado)
+      // Criar uma var pra receber a response/resposta a url vai esperar o post da api (caminho/rota/blueprint, argumento/lista/a ser sent)
       //Faz requisição POST pro endpoint/refunds/new
-      //Envia os dados salvos no estado dadosReembolso
-      const response = await Api.post("/refunds/new", dadosReembolso);
+      //Envia os dados salvos no estado datareimbursement
+      const response = await Api.post("/refunds/new", dataReimbursement);
       console.log("Resposta da API: ", response)
       alert("Reembolso solicitado com sucesso")
-      //Só vai enviar os dados se trocar o estado de enviado para true
-      setEnviado(true)
+      //Só vai enviar os dados se trocar o estado de sent para true
+      setSent(true)
     } catch(error){ //caso de
       console.log("Erro ao Enviar: ", error)
     }
@@ -145,11 +142,11 @@ export default function Solicitacao(){
 
   //HOOK USEEFFCT - Reagir a mudanças de states
   useEffect(() => {
-    if(enviado){ //se tiver enviado
-      setDadosReembolso([]); // limpar dados do form
-      setEnviado(false); // o state enviado volta a ser false
+    if(sent){ //se tiver sent
+      setDataReimbursement([]); // limpar dados do form
+      setSent(false); // o state sent volta a ser false
     }
-  },[enviado]); //Esse efeito só inicializa quando enviado mudar
+  },[sent]); //Esse efeito só inicializa quando sent mudar
 
   const onSubmitCallback = (e) => {
     e.preventDefault()
@@ -200,11 +197,11 @@ export default function Solicitacao(){
                     </label>
                     <input
                       className={`${styles.form__input} ${styles.form__input__nome}`}
-                      value={colaborador}
+                      id="colaborador"
+                      name="colaborador"
                       onChange={(e) => setColaborador(e.target.value)}
                       type="text"
-                      name="colaborador"
-                      id="colaborador"
+                      value={colaborador}
                     />
                   </div>
 
@@ -217,28 +214,28 @@ export default function Solicitacao(){
                     </label>
                     <input
                       className={`${styles.form__input} ${styles.form__input__empresa}`}
-                      value={empresa}
+                      id="empresa"
+                      name="empresa"
                       onChange={(e) => setEmpresa(e.target.value)}
                       type="text"
-                      name="empresa"
-                      id="empresa"
+                      value={empresa}
                     />
                   </div>
 
                   <div className={`${styles.form__field} ${styles.form__field__prestacao}`}>
                     <label
                       className={styles.form__label}
-                      htmlFor="numeroprestacaocontas"
+                      htmlFor="numeroPrestacaoContas"
                     >
                       Nº Prest. Contas
                     </label>
                     <input
                       className={`${styles.form__input} ${styles.form__input__prestacao}`}
-                      value={numeroPrestacaoContas}
+                      id="numeroPrestacaoContas"
+                      name="numeroprestacaocontas"
                       onChange={(e) => setNumeroPrestacaoContas(e.target.value)}
                       type="text"
-                      name="numeroprestacaocontas"
-                      id="numeroprestacaocontas"
+                      value={numeroPrestacaoContas}
                     />
                   </div>
                 </div>
@@ -251,11 +248,11 @@ export default function Solicitacao(){
                       Descrição / Motivo do Reembolso</label>
                     <input
                       className={`${styles.form__input} ${styles.form__input__reembolso}`}
-                      value={descricao}
+                      id="descricao"
+                      name="descricao"
                       onChange={(e) => setDescricao(e.target.value)}
                       type="text"
-                      name="descricao"
-                      id="descricao"
+                      value={descricao}
                     />
                   </div>
                 </div>
@@ -274,30 +271,32 @@ export default function Solicitacao(){
                   </label>
                   <input
                     className={`${styles.form__input} ${styles.form__input__date}`}
-                    value={data}
+                    id="data"
+                    name="data"
                     onChange={(e) => setData(e.target.value)}
                     type="date"
-                    name="data"
-                    id="data"
+                    value={data}
                   />
                 </div>
 
                 <div className={`${styles.form__field} ${styles.form__field__tiposdespesas}`}>
                   <label
                     className={styles.form__label}
-                    htmlFor="tipodespesa"
+                    htmlFor="tipoDespesa"
                   >
-                    Tipos de Despesas
+                    Tipos de Despesa
                   </label>
                   <select
                     className={`${styles.form__select} ${styles.form__select__tiposdespesas}`}
-                    value={tipoDespesa}
+                    id="tipoDespesa"
                     onChange={(e) => setTipoDespesa(e.target.value)}
-                    id="tipodespesa"
+                    value={tipoDespesa}
                   >
                     <option
                       className={`${styles.form__option} ${styles.form__option__tiposdespesas}`}
-                      disabled selected hidden
+                      disabled
+                      hidden
+                      selected
                     >
                       Selecionar
                     </option>
@@ -349,20 +348,22 @@ export default function Solicitacao(){
                 <div className={`${styles.form__field} ${styles.form__field__centrocustos}`}>
                   <label
                     className={styles.form__label}
-                    htmlFor="centrocusto"
+                    htmlFor="centroCusto"
                   >
                     Centro de Custos
                   </label>
                   <select
                     className={styles.form__select}
-                    value={centroCusto}
+                    id="centroCusto"
                     onChange={(e) => setCentroCusto(e.target.value)}
-                    id="centrocusto"
+                    value={centroCusto}
                   >
                     <option
                       className={`${styles.form__option} ${styles.form__option__centrocustos}`}
+                      disabled
+                      selected
+                      hidden
                       value=""
-                      disabled selected hidden
                     >
                       Selecionar
                     </option>
@@ -394,17 +395,17 @@ export default function Solicitacao(){
                   <div className={`${styles.form__field} ${styles.form__field__ordeminterna}`}>
                     <label
                       className={styles.form__label}
-                      htmlFor="ordeminterna"
+                      htmlFor="ordemInterna"
                     >
                       Ord. Int.
                     </label>
                     <input
                       className={`${styles.form__input} ${styles.form__input__ordeminterna}`}
-                      value={ordemInterna}
+                      id="ordemInterna"
+                      name="ordemInterna"
                       onChange={(e) => setOrdemInterna(e.target.value)}
                       type="text"
-                      name="ordeminterna"
-                      id="ordeminterna"
+                      value={ordemInterna}
                     />
                   </div>
 
@@ -417,11 +418,11 @@ export default function Solicitacao(){
                     </label>
                     <input
                       className={`${styles.form__input} ${styles.form__input__divisao}`}
-                      value={divisao}
+                      id="divisao"
+                      name="divisao"
                       onChange={(e) => setDivisao(e.target.value)}
                       type="text"
-                      name="divisao"
-                      id="divisao"
+                      value={divisao}
                     />
                   </div>
 
@@ -434,11 +435,11 @@ export default function Solicitacao(){
                     </label>
                     <input
                       className={`${styles.form__input} ${styles.form__input__pep}`}
-                      value={pep}
+                      id="pep"
+                      name="pep"
                       onChange={(e) => setPep(e.target.value)}
                       type="text"
-                      name="pep"
-                      id="pep"
+                      value={pep}
                     />
                   </div>
 
@@ -451,62 +452,63 @@ export default function Solicitacao(){
                     </label>
                     <input
                       className={`${styles.form__input} ${styles.form__input__moeda}`}
-                      value={moeda}
+                      id="moeda"
+                      name="moeda"
                       onChange={(e) => setMoeda(e.target.value)}
                       type="number"
-                      name="moeda"
-                      id="moeda"
+                      value={moeda}
                     />
                   </div>
 
                   <div className={`${styles.form__field} ${styles.form__field__distanciakm}`}>
                     <label
                       className={styles.form__label}
-                      htmlFor="distanciakm"
+                      htmlFor="distanciaKm"
                     >
                       Dist / Km
                     </label>
                     <input
                       className={`${styles.form__input} ${styles.form__input__distanciakm}`}
-                      value={distanciaKm}
+                      id="distanciaKm"
+                      name="distanciaKm"
                       onChange={(e) => setDistanciaKm(e.target.value)}
                       type="number"
-                      name="distanciakm"
-                      id="distanciakm"
+                      value={distanciaKm}
                     />
                   </div>
 
                   <div className={`${styles.form__field} ${styles.form__field__valorkm}`}>
                     <label
                       className={styles.form__label}
-                      htmlFor="valorkm"
+                      htmlFor="valorKm"
                     >
                       Valor / Km
                     </label>
                     <input
                       className={`${styles.form__input} ${styles.form__input__valorkm}`}
-                      value={valorKm}
+                      id="valorKm"
+                      name="valorKm"
                       onChange={(e) => setValorKm(e.target.value)}
                       type="number"
-                      name="valorkm"
-                      id="valorkm"
+                      value={valorKm}
                     />
                   </div>
 
                   <div className={`${styles.form__field} ${styles.form__field__valorfaturado}`}>
                     <label
                       className={styles.form__label}
-                      htmlFor="valorfaturado"
+                      htmlFor="valorFaturado"
                     >
                       Val. Faturado
                     </label>
                     <input
                       className={`${styles.form__input} ${styles.form__input__valorfaturado}`}
-                      value={valorFaturado}
+                      htmlFor="valorFaturado"
+                      id="valorFaturado"
+                      name="valorFaturado"
                       onChange={(e) => setValorFaturado(e.target.value)}
                       type="number"
-                      name="valorfaturado"
-                      htmlFor="valortfaturado"
+                      value={valorFaturado}
                     />
                   </div>
 
@@ -519,11 +521,11 @@ export default function Solicitacao(){
                     </label>
                     <input
                       className={`${styles.form__input} ${styles.form__input__despesas}`}
-                      value={despesa}
+                      id="despesas"
+                      name="despesas"
                       onChange={(e) => setDespesa(e.target.value)}
                       type="number"
-                      name="despesas"
-                      id="despesas"
+                      value={despesa}
                     />
                   </div>
                 </div>
@@ -531,23 +533,23 @@ export default function Solicitacao(){
                 <div className={styles.form__container2__bottom__right}>
                   <button
                     className={`${styles.form__button} ${styles.form__field__maissalvar}`}
+                    name="maissalvar"
                     onClick={handleSubmit}
                     type="submit"
-                    name="maissalvar"
                     value="salvar"
                   >
                   + Salvar
                   </button>
                   <button
                     className={`${styles.form__button} ${styles.form__field__limpar}`}
-                    onClick={limparCampos}
-                    type="submit"
                     name="limpar"
+                    onClick={clearFormFields}
+                    type="submit"
                     value="limpar"
                   >
                     <img
-                      src={IconDelete}
                       alt="Delete"
+                      src={IconDelete}
                       title="Delete"
                     />
                   </button>
@@ -580,13 +582,13 @@ export default function Solicitacao(){
                   </thead>
                   <tbody className={styles.table__body}>
                     {tableData.map(rawData => (
-                      <tr>
+                      <tr key={rawData.id}>
                         <td>
                           <button className={styles.table__button}>
                             <img
+                              alt="Trash"
                               className={`${styles.table__icon} ${styles.table__icon__trash}`}
                               src={IconTrash}
-                              alt="Trash"
                               title="Deletar linha"
                             />
                           </button>
@@ -598,9 +600,9 @@ export default function Solicitacao(){
                         <td>
                           <button className={styles.table__button}>
                             <img
+                              alt="Motivo"
                               className={`${styles.table__icon} ${styles.table__icon__motivo}`}
                               src={IconMotivo}
-                              alt="Motivo"
                               title="Motivo" />
                           </button>
                         </td>
@@ -630,9 +632,12 @@ export default function Solicitacao(){
               </div>
               <SolicitacaoButton
                 cta="Enviar para Análise"
-                onClick={enviarParaAnalise}
+                onClick={sendForAnalysis}
               />
-              <SolicitacaoButton cta="Cancelar Solicitação" />
+              <SolicitacaoButton
+                cta="Cancelar Solicitação"
+                onClick={clearFormFields}
+              />
             </div>
           </div>
         </main>
